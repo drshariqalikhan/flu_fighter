@@ -48,7 +48,7 @@ class _SplashConnectState extends State<SplashConnect> {
               children: <Widget>[
 
               // Image.asset('assets/images/speroicon.png'),
-              Text("Welcome to FLU FIGHTER",style: TextStyle(fontWeight: FontWeight.bold),),
+              // Text("Welcome to FLU FIGHTER",style: TextStyle(fontWeight: FontWeight.bold),),
               Image.asset('assets/images/speroicon.png'),
               Text("No Internet Detected. Please Tap here to try again",style: TextStyle(fontWeight: FontWeight.bold),),
               

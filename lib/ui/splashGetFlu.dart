@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashGetFlu extends StatelessWidget {
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

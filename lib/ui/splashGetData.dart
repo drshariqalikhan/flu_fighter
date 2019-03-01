@@ -8,6 +8,7 @@ import 'package:simple_permissions/simple_permissions.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:device_id/device_id.dart';
+import 'package:onesignal/onesignal.dart';
 
 
 class SplashGetData extends StatefulWidget {
@@ -25,7 +26,26 @@ class _SplashGetDataState extends State<SplashGetData> {
   var currentLocation;
 
 
-  
+   @override
+  void initState() {
+    super.initState();
+    initPlatformState();
+  }
+
+   Future<void> initPlatformState() async{
+     if(!mounted) return;
+
+     var settings = {
+      OSiOSSettings.autoPrompt: false,
+      OSiOSSettings.promptBeforeOpeningPushUrl: true
+    };
+
+     await OneSignal.shared
+        .init("851420b5-ceed-445c-822e-078a4a19d9d5", iOSSettings: settings);
+
+
+
+   }
 
 
   Future<News> getData()async{
@@ -93,7 +113,7 @@ class _SplashGetDataState extends State<SplashGetData> {
                      return  Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                Text("Welcome to FLU FIGHTER",style: TextStyle(fontWeight: FontWeight.bold),),
+                // Text("Welcome to FLU FIGHTER",style: TextStyle(fontWeight: FontWeight.bold),),
                 Image.asset('assets/images/speroicon.png'),
                 CircularProgressIndicator(),
                 ] );

@@ -22,39 +22,3 @@ class MyApp extends StatelessWidget {
   }
 }
 
-//  void main() => runApp(App());
-
-// class App extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       theme: ThemeData.dark(),
-//       home: Test(),
-      
-//     );
-//   }
-// }
-
-// class Test extends StatefulWidget {
-//   @override
-//   _TestState createState() => _TestState();
-// }
-
-// class _TestState extends State<Test> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(title: Text('data'),),
-//       body: Center(child: Text('some data')),
-//       floatingActionButton: FloatingActionButton(
-//         onPressed: ()async{
-//         await ScreenshotShare.takeScreenshotAndShare();
-
-               
-
-//         },
-//       ),
-      
-//     );
-//   }
-// }
