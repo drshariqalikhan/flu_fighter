@@ -70,7 +70,6 @@ class _SplashGetDataState extends State<SplashGetData> {
     // print(hasflu);
     //get unique device id
     var UID = await DeviceId.getID;
-    //TODO: Add hasflu to API call
     //cal api
 
     final res= await http.get('https://infinite-tor-43156.herokuapp.com/f?lat=$lat&lon=$lon&hasflu=$hasflu&uid=$UID');
@@ -97,26 +96,34 @@ class _SplashGetDataState extends State<SplashGetData> {
                 future: getData(),
                   builder: (context,snapshot){
                    if(snapshot.hasData){
-//             print(snapshot.data)
                     News news_data =snapshot.data;
-                    // var user_location =news_data.loc;
                     
-                    // List<All> all_news_list = news_data.news.all;
-                    // List<All> near_news_list = news_data.news.near; 
-                    // List<double> points =news_data.fludata.trend;
-
                      return Backbone(
                        BackBoneData: news_data,
                      );
                    }else{
                     //  print(snapshot.error);
                      return  Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                // Text("Welcome to FLU FIGHTER",style: TextStyle(fontWeight: FontWeight.bold),),
-                Image.asset('assets/images/speroicon.png'),
-                CircularProgressIndicator(),
-                ] );
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                        Text("FLU ",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 40.0),),
+                                        Hero( tag: 'Ff',child: Image.asset('assets/images/speroicon.png',height: 60.0,)),
+                                        Text(" FIGHTER",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 40.0),),
+                                          ],
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(15.0),
+                                  child: CircularProgressIndicator(),
+                                ),
+                                  
+                              ],
+                              );
                    }
                   }
               ),

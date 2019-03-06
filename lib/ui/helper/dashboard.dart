@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_figher/model/newsModel.dart';
 import 'package:flutter_figher/ui/helper/DashData.dart';
 import 'package:flutter_figher/ui/helper/alertwidget.dart';
-import 'package:flutter_sparkline/flutter_sparkline.dart';
+import 'package:flutter_figher/ui/helper/marqee.dart';
+
 
 class Dashboard extends StatefulWidget {
   final News InData;
@@ -12,6 +13,19 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
+
+
+  _getAreaColor(int usernum){
+    if(usernum < 2){
+      return null;
+    }
+    else if(usernum >5){
+      return 'FLU FIGHTER ALERT! MANY SUSPECTED CASES IN 5Km : TAKE MAJOR PRECAUTIONS'; 
+    }else{
+      return 'FLU FIGHTER ALERT! SUSPECTED CASES DETECTED IN 5Km!';
+    }
+  }
+
   
   @override
   Widget build(BuildContext context) {
@@ -21,6 +35,7 @@ class _DashboardState extends State<Dashboard> {
     int alert_level;
     Strain mainStrain,otherStrain;
     var country_name;
+    var flu_users =widget.InData.fluNear;
     
 
     for(var f in fludataList){
@@ -30,6 +45,7 @@ class _DashboardState extends State<Dashboard> {
         country_name = f.countryName;
         mainStrain = f.mainStrain;
         otherStrain = f.otherStrain;
+        
         //todo other param
       }
     }
@@ -39,8 +55,10 @@ class _DashboardState extends State<Dashboard> {
 
     
     return Scaffold(
-      appBar: AppBar(title: Text(country_name),automaticallyImplyLeading: false,
-      centerTitle: true,),
+      appBar: AppBar(title: MarqueeWidget( direction: Axis.horizontal,child: Text(_getAreaColor(flu_users)?? country_name.toUpperCase()),),//text:_getAreaColor(flu_users)?? country_name.toUpperCase()) ,
+      leading: Image.network('https://www.countryflags.io/$location/shiny/64.png'),
+      automaticallyImplyLeading: false,
+        ),
       body: SingleChildScrollView(
         child: new DashDataWidget(
           isExpanded: true,

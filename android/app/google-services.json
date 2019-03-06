@@ -1,0 +1,43 @@
+{
+  "project_info": {
+    "project_number": "547882562851",
+    "firebase_url": "https://flufighter-e1398.firebaseio.com",
+    "project_id": "flufighter-e1398",
+    "storage_bucket": "flufighter-e1398.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:547882562851:android:cff47ae6a316d09e",
+        "android_client_info": {
+          "package_name": "com.speromedtech.flutterfigher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "547882562851-j8rd7vl4jlsdrv2rp3flfe3bvq9buqn7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnvuGEzdum0jI3I4cyuHhEhfya8TO1CQs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      },
+      "admob_app_id": "ca-app-pub-1976942355314340~8762094375"
+    }
+  ],
+  "configuration_version": "1"
+}

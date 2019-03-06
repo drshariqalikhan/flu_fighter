@@ -14,14 +14,13 @@ class SplashGetFlu extends StatelessWidget {
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Card(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                     Image.asset('assets/images/speroicon.png',height: 20.0,),
-                     Text("Welcome to FLU FIGHTER",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20.0),),
-                      ],
-            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+                  Text("FLU ",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20.0),),
+                   Hero(tag: 'Ff',child:Image.asset('assets/images/speroicon.png',height: 20.0,),),
+                   Text(" FIGHTER",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20.0),),
+                    ],
             ),
           ),
           Padding(

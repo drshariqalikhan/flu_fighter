@@ -3,7 +3,6 @@ import 'package:flutter_figher/model/newsModel.dart';
 import 'package:flutter_figher/ui/helper/alertwidget.dart';
 import 'package:flutter_sparkline/flutter_sparkline.dart';
 
-import 'package:screenshot_and_share/generated/i18n.dart';
 import 'package:screenshot_and_share/screenshot_share.dart';
 import 'package:flutter_figher/ui/helper/iconCard.dart';
 
@@ -24,9 +23,14 @@ class DashDataWidget extends StatelessWidget {
   final Strain otherStrain;
   final isExpanded;
 
+
+
+
+
   @override
   Widget build(BuildContext context) {
     List<IconCard> alert_list = a.Alert_data()['alert_advicer'];
+     
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(

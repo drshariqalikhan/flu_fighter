@@ -15,28 +15,36 @@ String newsToJson(News data) {
 }
 
 class News {
+    String adUnitId;
     String code;
     String country;
+    int fluNear;
     List<Fludatum> fludata;
     List<NewsElement> news;
 
     News({
+        this.adUnitId,
         this.code,
         this.country,
+        this.fluNear,
         this.fludata,
         this.news,
     });
 
     factory News.fromJson(Map<String, dynamic> json) => new News(
+        adUnitId: json["AdUnitID"],
         code: json["code"],
         country: json["country"],
+        fluNear: json["fluNear"],
         fludata: new List<Fludatum>.from(json["fludata"].map((x) => Fludatum.fromJson(x))),
         news: new List<NewsElement>.from(json["news"].map((x) => NewsElement.fromJson(x))),
     );
 
     Map<String, dynamic> toJson() => {
+        "AdUnitID": adUnitId,
         "code": code,
         "country": country,
+        "fluNear": fluNear,
         "fludata": new List<dynamic>.from(fludata.map((x) => x.toJson())),
         "news": new List<dynamic>.from(news.map((x) => x.toJson())),
     };
@@ -106,21 +114,21 @@ class Strain {
     };
 }
 
-enum HospitalizationRate { THE_1_IN_1000, THE_1_IN_100000 }
+enum HospitalizationRate { THE_1_IN_100000, THE_1_IN_1000 }
 
 final hospitalizationRateValues = new EnumValues({
     "1 in 1000": HospitalizationRate.THE_1_IN_1000,
     "1 in 100000": HospitalizationRate.THE_1_IN_100000
 });
 
-enum KillRate { THE_26_RANGE_1166_PER_100000, THE_1_IN_100000 }
+enum KillRate { THE_1_IN_100000, THE_26_RANGE_1166_PER_100000 }
 
 final killRateValues = new EnumValues({
     "1 in 100000": KillRate.THE_1_IN_100000,
     "26 (range 11-66) per 100,000": KillRate.THE_26_RANGE_1166_PER_100000
 });
 
-enum RecoveryPd { THE_10_DAYS, THE_5_DAYS }
+enum RecoveryPd { THE_5_DAYS, THE_10_DAYS }
 
 final recoveryPdValues = new EnumValues({
     "10 days": RecoveryPd.THE_10_DAYS,
